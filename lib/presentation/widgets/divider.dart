@@ -23,16 +23,16 @@ class ScreenSplitter extends StatelessWidget {
                           child: Stack(
                             children: [
                               RotatedBox(
-                                quarterTurns: 3,
+                                quarterTurns: 4,
                                 child: Container(
                                   color: Colors.red,
                                   child: IconButton(
-                                    icon: Icon(Icons.rotate_left),
+                                    icon: const Icon(Icons.rotate_left),
                                     onPressed: () {},
                                   ),
                                 ),
                               ),
-                              Center(
+                              const Center(
                                 child: RandomNumberChallenge(),
                               ),
                             ],

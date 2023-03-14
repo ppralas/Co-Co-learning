@@ -13,13 +13,29 @@
             "name": "skola (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug"
         },
         {
             "name": "skola (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "debug"
+        },
+        {
+            "name": "Teacher",
+            "request": "launch",
+            "type": "dart",
+           
+            "program": "lib/main/main_teacher.dart"
+           
+        },
+        {
+            "name": "Student",
+            "request": "launch",
+            "type": "dart",
+           
+            "program": "lib/main/main_student.dart"
+         
         }
     ]
 }

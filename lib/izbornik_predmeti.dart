@@ -33,7 +33,9 @@ class Izbornik extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Matematika()),
+                    MaterialPageRoute(
+                      builder: (context) => const Matematika(),
+                    ),
                   );
                 },
               ),

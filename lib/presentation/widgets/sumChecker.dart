@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class RandomNumberChallenge extends StatefulWidget {
+  const RandomNumberChallenge({super.key});
+
   @override
   _RandomNumberChallengeState createState() => _RandomNumberChallengeState();
 }

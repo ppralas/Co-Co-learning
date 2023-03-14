@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:skola/presentation/widgets/divider.dart';
+import 'package:skola/presentation/widgets/rotation.dart';
 
 class Matematika extends StatelessWidget {
-  const Matematika({super.key});
+  const Matematika({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class Matematika extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Screen 1'),
       ),
-      body: const ScreenSplitter(),
+      body: const RotatingScreen(),
     );
   }
 }

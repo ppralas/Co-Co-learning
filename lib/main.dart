@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skola/izbornik.dart';
+import 'package:skola/izbornik_predmeti.dart';
 
 void main() => runApp(const MyApp());
 
