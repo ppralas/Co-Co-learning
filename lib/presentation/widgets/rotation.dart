@@ -1,19 +1,21 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class RotatingScreen extends StatefulWidget {
   const RotatingScreen({super.key});
 
   @override
-  _RotatingScreenState createState() => _RotatingScreenState();
+  RotatingScreenState createState() => RotatingScreenState();
 }
 
-class _RotatingScreenState extends State<RotatingScreen> {
+class RotatingScreenState extends State<RotatingScreen> {
   final List<double> _rotationAngles = [0, 0, 0, 0];
 
   void _rotateContent(int index) {
     setState(() {
       _rotationAngles[index] +=
-          45; // Rotate content by 45 degrees on each button press
+          pi / 2; // Rotate content by 45 degrees on each button press
     });
   }
 

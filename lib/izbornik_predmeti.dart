@@ -45,7 +45,8 @@ class Izbornik extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Hrvatski()),
+                    MaterialPageRoute(
+                        builder: (context) => const LanguagePage()),
                   );
                 },
               ),

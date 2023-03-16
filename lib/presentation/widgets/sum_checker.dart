@@ -5,10 +5,10 @@ class RandomNumberChallenge extends StatefulWidget {
   const RandomNumberChallenge({super.key});
 
   @override
-  _RandomNumberChallengeState createState() => _RandomNumberChallengeState();
+  RandomNumberChallengeState createState() => RandomNumberChallengeState();
 }
 
-class _RandomNumberChallengeState extends State<RandomNumberChallenge> {
+class RandomNumberChallengeState extends State<RandomNumberChallenge> {
   late int firstNumber;
   late int secondNumber;
   late int sum;

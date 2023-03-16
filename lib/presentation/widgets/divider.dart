@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skola/presentation/widgets/sumChecker.dart';
+import 'package:skola/presentation/widgets/sum_checker.dart';
 
 class ScreenSplitter extends StatelessWidget {
   const ScreenSplitter({super.key});

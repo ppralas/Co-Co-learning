@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>847310509-q4q0pv30ii7h87q4efc8khkq84206b0c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.847310509-q4q0pv30ii7h87q4efc8khkq84206b0c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD3JQp5ErGscWQs-PFCL7mDNnz-nm_USWw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>847310509</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.skola</string>
+	<key>PROJECT_ID</key>
+	<string>coco-learning</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coco-learning.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:847310509:ios:dc2e433a6e6cf1ac9b6024</string>
+	<key>DATABASE_URL</key>
+	<string>https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:skola/main%20/app_enviroments.dart';
 
 class StudentLogin extends StatelessWidget {
-  final Role role;
-  const StudentLogin({super.key, required this.role});
+  const StudentLogin({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

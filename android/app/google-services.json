@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "847310509",
+    "firebase_url": "https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "coco-learning",
+    "storage_bucket": "coco-learning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847310509:android:f7b1840d4021e49d9b6024",
+        "android_client_info": {
+          "package_name": "com.example.skola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847310509-iisef65ai5v3c5d8d1vvvj0a46mpr55a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwlceJ8LHI4Kith6M2Qt3eIDmy8BlrSc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847310509-iisef65ai5v3c5d8d1vvvj0a46mpr55a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
