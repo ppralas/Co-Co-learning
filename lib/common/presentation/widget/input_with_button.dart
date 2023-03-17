@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:skola/common/presentation/widget/title_widget.dart';
 
@@ -20,7 +19,7 @@ class InputWithButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _textController = TextEditingController();
+    final TextEditingController textController = TextEditingController();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +30,7 @@ class InputWithButton extends StatelessWidget {
           children: [
             Expanded(
               child: TextField(
-                controller: _textController,
+                controller: textController,
                 decoration: InputDecoration(
                   hintText: hintText,
                   border: const OutlineInputBorder(),
@@ -40,7 +39,7 @@ class InputWithButton extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             ElevatedButton.icon(
-              onPressed: () => onButtonPressed(_textController.text),
+              onPressed: () => onButtonPressed(textController.text),
               icon: Icon(buttonIcon),
               label: Text(buttonText),
             ),
