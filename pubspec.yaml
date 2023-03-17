@@ -32,43 +32,16 @@ dev_dependencies:
   json_serializable: ^6.6.1
 
 
-
-
-
-flutter:
-
   
   
-  
+flutter: 
   uses-material-design: true
 
-  
-  
-  
-  
+  fonts:
+    - family: JosefinSans
+      fonts:
+        - asset: Assets/fonts/JosefinSans-Regular.ttf
+          weight: 400
+        - asset: Assets/fonts/JosefinSans-Bold.ttf
+          weight: 700
 
-  
-  
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  

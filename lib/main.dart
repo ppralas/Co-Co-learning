@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/izbornik_predmeti.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:skola/teacher/activity_designer_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => const Izbornik(),
+        '/': (context) => const LessonDesigner(),
       },
     );
   }
