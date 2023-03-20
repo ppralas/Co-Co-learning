@@ -40,6 +40,7 @@ class ClassPickerState extends State<ClassPicker> {
             });
             widget.onSelectionChanged(value!);
           },
+          //ovu listu dohvacat s firebasea
           items: [1, 2, 3, 4].map((value) {
             return DropdownMenuItem<int>(
               value: value,

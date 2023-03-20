@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skola/common/presentation/widget/title_widget.dart';
 
+//pretvoriti ovo u stateful widget varijabla u stateu textediting controller i instanciarti u init stateu u kontroler
+//ili dodat u text input onChanged i spremat vrijednost
 class InputWithButton extends StatelessWidget {
   final String headerText;
   final String hintText;

@@ -11,13 +11,18 @@ class AddTaskWidget extends StatefulWidget {
 
 class AddTaskWidgetState extends State<AddTaskWidget> {
   final _controller = TextEditingController();
-
   void _addTask() {
     final task = _controller.text.trim();
     if (task.isNotEmpty) {
       widget.onTaskAdded(task);
       _controller.clear();
     }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
