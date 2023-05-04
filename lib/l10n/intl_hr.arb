@@ -1,4 +1,19 @@
 {
     "@@locale": "hr",
-    "hello": "Pozdrav brate"
+    "hello": "Pozdrav brate", 
+    "subject_select" : "Odabir razreda", 
+    "lesson" : "Lekcija",
+    "lesson_add" : "Dodaj lekciju",
+    "lesson_name" : "Unesite ime lekcije",
+    "lesson_designer" : "Dizajner lekcija",
+    "error" : "Error",
+    "sublesson" : "Podlekcija",
+    "sublesson_name" : "Ime podlekcije",
+    "add_sublesson" : "Dodaj podlekciju",
+    "grade" : "Odabir razreda",
+    "subject" : "Predmet"
+    
+ 
+
+
 }
