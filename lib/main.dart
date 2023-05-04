@@ -4,8 +4,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
-import 'package:skola/teacher/activity_designer_screen.dart';
+import 'package:skola/student/screens/error_screen.dart';
+import 'package:skola/teacher/lesson_designer/presentation/activity_designer_screen.dart';
 
+import 'student/screens/student_initial_screen.dart';
+import 'student/screens/text_input_screen.dart';
 import 'teacher/lesson_designer/domain/notifiers/lesson_designer_notifier.dart';
 
 Future<void> main() async {
@@ -32,11 +35,11 @@ class MyApp extends ConsumerWidget {
           loading: () => print('loading'),
           loaded: (lessons, grades, subjects) =>
               print('$grades, $lessons, $subjects'),
-          error: (failure) => print('error'));
+          error: (failure) => print(failure.error));
     });
     return MaterialApp(
       routes: {
-        '/': (context) => const LessonDesigner(),
+        '/': (context) => const WelcomeScreen(),
       },
       locale: const Locale("hr"),
       supportedLocales: S.delegate.supportedLocales,

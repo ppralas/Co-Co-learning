@@ -22,6 +22,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "hello": MessageLookupByLibrary.simpleMessage("Pozdrav brate")
+        "add_sublesson":
+            MessageLookupByLibrary.simpleMessage("Dodaj podlekciju"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "grade": MessageLookupByLibrary.simpleMessage("Odabir razreda"),
+        "hello": MessageLookupByLibrary.simpleMessage("Pozdrav brate"),
+        "lesson": MessageLookupByLibrary.simpleMessage("Lekcija"),
+        "lesson_add": MessageLookupByLibrary.simpleMessage("Dodaj lekciju"),
+        "lesson_designer":
+            MessageLookupByLibrary.simpleMessage("Dizajner lekcija"),
+        "lesson_name":
+            MessageLookupByLibrary.simpleMessage("Unesite ime lekcije"),
+        "subject": MessageLookupByLibrary.simpleMessage("Predmet"),
+        "subject_select":
+            MessageLookupByLibrary.simpleMessage("Odabir razreda"),
+        "sublesson": MessageLookupByLibrary.simpleMessage("Podlekcija"),
+        "sublesson_name": MessageLookupByLibrary.simpleMessage("Ime podlekcije")
       };
 }

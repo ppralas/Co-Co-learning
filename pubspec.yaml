@@ -31,6 +31,8 @@ dependencies:
   json_annotation: ^4.8.0
   equatable: ^2.0.5
   dartz: ^0.10.1
+  hexcolor: ^3.0.1
+  flutter_svg: ^2.0.5
 
 flutter_intl:
   main_locale: hr
@@ -60,4 +62,5 @@ flutter:
           weight: 400
         - asset: Assets/fonts/JosefinSans-Bold.ttf
           weight: 700
-
+  assets:
+    - Assets/images/

@@ -59,6 +59,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Odabir razreda`
+  String get subject_select {
+    return Intl.message(
+      'Odabir razreda',
+      name: 'subject_select',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lekcija`
+  String get lesson {
+    return Intl.message(
+      'Lekcija',
+      name: 'lesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dodaj lekciju`
+  String get lesson_add {
+    return Intl.message(
+      'Dodaj lekciju',
+      name: 'lesson_add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unesite ime lekcije`
+  String get lesson_name {
+    return Intl.message(
+      'Unesite ime lekcije',
+      name: 'lesson_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dizajner lekcija`
+  String get lesson_designer {
+    return Intl.message(
+      'Dizajner lekcija',
+      name: 'lesson_designer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Podlekcija`
+  String get sublesson {
+    return Intl.message(
+      'Podlekcija',
+      name: 'sublesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ime podlekcije`
+  String get sublesson_name {
+    return Intl.message(
+      'Ime podlekcije',
+      name: 'sublesson_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dodaj podlekciju`
+  String get add_sublesson {
+    return Intl.message(
+      'Dodaj podlekciju',
+      name: 'add_sublesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Odabir razreda`
+  String get grade {
+    return Intl.message(
+      'Odabir razreda',
+      name: 'grade',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Predmet`
+  String get subject {
+    return Intl.message(
+      'Predmet',
+      name: 'subject',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
