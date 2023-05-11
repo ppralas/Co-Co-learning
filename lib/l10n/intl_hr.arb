@@ -11,9 +11,17 @@
     "sublesson_name" : "Ime podlekcije",
     "add_sublesson" : "Dodaj podlekciju",
     "grade" : "Odabir razreda",
-    "subject" : "Predmet"
-    
- 
-
+    "subject" : "Predmet",
+    "oh_no": "Oh, ne!",
+    "start_app": "POKRENI",
+    "first_student_name": "Unesite prvo ime",
+    "second_studnet_name": "Unesite drugo ime",
+    "third_studnet_name": "Unesite trece ime",
+    "forth_student_name": "Unesite cetvrto ime", 
+    "welcome_title": "Dobrodošli u CoCo aplikaciju",
+    "unkown_error": "Unknown error occurred",
+    "hi_message": "BOK!",
+    "error_screen_message": "Nešto je pošlo po krivu,\npostavke nisu dohvaćene!",
+    "get_again" : "Ponovo dohvati"
 
 }

@@ -25,18 +25,37 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_sublesson":
             MessageLookupByLibrary.simpleMessage("Dodaj podlekciju"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "error_screen_message": MessageLookupByLibrary.simpleMessage(
+            "Nešto je pošlo po krivu,\npostavke nisu dohvaćene!"),
+        "first_student_name":
+            MessageLookupByLibrary.simpleMessage("Unesite prvo ime"),
+        "forth_student_name":
+            MessageLookupByLibrary.simpleMessage("Unesite cetvrto ime"),
+        "get_again": MessageLookupByLibrary.simpleMessage("Ponovo dohvati"),
         "grade": MessageLookupByLibrary.simpleMessage("Odabir razreda"),
         "hello": MessageLookupByLibrary.simpleMessage("Pozdrav brate"),
+        "hi_message": MessageLookupByLibrary.simpleMessage("BOK!"),
         "lesson": MessageLookupByLibrary.simpleMessage("Lekcija"),
         "lesson_add": MessageLookupByLibrary.simpleMessage("Dodaj lekciju"),
         "lesson_designer":
             MessageLookupByLibrary.simpleMessage("Dizajner lekcija"),
         "lesson_name":
             MessageLookupByLibrary.simpleMessage("Unesite ime lekcije"),
+        "oh_no": MessageLookupByLibrary.simpleMessage("Oh, ne!"),
+        "second_studnet_name":
+            MessageLookupByLibrary.simpleMessage("Unesite drugo ime"),
+        "start_app": MessageLookupByLibrary.simpleMessage("POKRENI"),
         "subject": MessageLookupByLibrary.simpleMessage("Predmet"),
         "subject_select":
             MessageLookupByLibrary.simpleMessage("Odabir razreda"),
         "sublesson": MessageLookupByLibrary.simpleMessage("Podlekcija"),
-        "sublesson_name": MessageLookupByLibrary.simpleMessage("Ime podlekcije")
+        "sublesson_name":
+            MessageLookupByLibrary.simpleMessage("Ime podlekcije"),
+        "third_studnet_name":
+            MessageLookupByLibrary.simpleMessage("Unesite trece ime"),
+        "unkown_error":
+            MessageLookupByLibrary.simpleMessage("Unknown error occurred"),
+        "welcome_title":
+            MessageLookupByLibrary.simpleMessage("Dobrodošli u CoCo aplikaciju")
       };
 }

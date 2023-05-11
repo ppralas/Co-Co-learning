@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 abstract class AppColors {
   static final Color black = HexColor.fromHex('#000000');
@@ -19,6 +20,7 @@ abstract class AppColors {
   static final Color darkOrange = HexColor.fromHex('#942E02');
   static final Color darkBlue = HexColor.fromHex('#02677E');
   static final Color veryLightPurple = HexColor.fromHex('#DDE5FE');
+  static final Color lightPurple = HexColor.fromHex('#5F62A9');
 
   static final Color shadowColor = HexColor.fromHex('#656B8E');
 

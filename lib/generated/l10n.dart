@@ -169,6 +169,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Oh, ne!`
+  String get oh_no {
+    return Intl.message(
+      'Oh, ne!',
+      name: 'oh_no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `POKRENI`
+  String get start_app {
+    return Intl.message(
+      'POKRENI',
+      name: 'start_app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unesite prvo ime`
+  String get first_student_name {
+    return Intl.message(
+      'Unesite prvo ime',
+      name: 'first_student_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unesite drugo ime`
+  String get second_studnet_name {
+    return Intl.message(
+      'Unesite drugo ime',
+      name: 'second_studnet_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unesite trece ime`
+  String get third_studnet_name {
+    return Intl.message(
+      'Unesite trece ime',
+      name: 'third_studnet_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unesite cetvrto ime`
+  String get forth_student_name {
+    return Intl.message(
+      'Unesite cetvrto ime',
+      name: 'forth_student_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dobrodošli u CoCo aplikaciju`
+  String get welcome_title {
+    return Intl.message(
+      'Dobrodošli u CoCo aplikaciju',
+      name: 'welcome_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error occurred`
+  String get unkown_error {
+    return Intl.message(
+      'Unknown error occurred',
+      name: 'unkown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BOK!`
+  String get hi_message {
+    return Intl.message(
+      'BOK!',
+      name: 'hi_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nešto je pošlo po krivu,\npostavke nisu dohvaćene!`
+  String get error_screen_message {
+    return Intl.message(
+      'Nešto je pošlo po krivu,\npostavke nisu dohvaćene!',
+      name: 'error_screen_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ponovo dohvati`
+  String get get_again {
+    return Intl.message(
+      'Ponovo dohvati',
+      name: 'get_again',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

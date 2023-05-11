@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
+import 'package:skola/presentation/widgets/rotation.dart';
 import 'package:skola/student/screens/error_screen.dart';
 import 'package:skola/teacher/lesson_designer/presentation/activity_designer_screen.dart';
 
@@ -39,7 +40,7 @@ class MyApp extends ConsumerWidget {
     });
     return MaterialApp(
       routes: {
-        '/': (context) => const WelcomeScreen(),
+        '/': (context) => const RotatingScreen(),
       },
       locale: const Locale("hr"),
       supportedLocales: S.delegate.supportedLocales,
