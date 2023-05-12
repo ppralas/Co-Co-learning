@@ -21,7 +21,9 @@
     "welcome_title": "Dobrodošli u CoCo aplikaciju",
     "unkown_error": "Unknown error occurred",
     "hi_message": "BOK!",
+    "hi": "Bok,",
     "error_screen_message": "Nešto je pošlo po krivu,\npostavke nisu dohvaćene!",
-    "get_again" : "Ponovo dohvati"
+    "get_again" : "Ponovo dohvati",
+    "rotate_screen": "Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!"
 
 }

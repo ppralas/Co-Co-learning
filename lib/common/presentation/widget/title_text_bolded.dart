@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class TitleWidget extends StatelessWidget {
+class TitleTextBolded extends StatelessWidget {
   final String titleText;
-  const TitleWidget({super.key, required this.titleText});
+  const TitleTextBolded({super.key, required this.titleText});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class TitleWidget extends StatelessWidget {
         style: const TextStyle(
           fontFamily: 'JosefinSans',
           fontWeight: FontWeight.bold,
-          fontSize: 36,
+          fontSize: 40,
         ),
       ),
     );

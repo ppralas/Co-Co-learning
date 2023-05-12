@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "get_again": MessageLookupByLibrary.simpleMessage("Ponovo dohvati"),
         "grade": MessageLookupByLibrary.simpleMessage("Odabir razreda"),
         "hello": MessageLookupByLibrary.simpleMessage("Pozdrav brate"),
+        "hi": MessageLookupByLibrary.simpleMessage("Bok,"),
         "hi_message": MessageLookupByLibrary.simpleMessage("BOK!"),
         "lesson": MessageLookupByLibrary.simpleMessage("Lekcija"),
         "lesson_add": MessageLookupByLibrary.simpleMessage("Dodaj lekciju"),
@@ -42,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "lesson_name":
             MessageLookupByLibrary.simpleMessage("Unesite ime lekcije"),
         "oh_no": MessageLookupByLibrary.simpleMessage("Oh, ne!"),
+        "rotate_screen": MessageLookupByLibrary.simpleMessage(
+            "Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!"),
         "second_studnet_name":
             MessageLookupByLibrary.simpleMessage("Unesite drugo ime"),
         "start_app": MessageLookupByLibrary.simpleMessage("POKRENI"),

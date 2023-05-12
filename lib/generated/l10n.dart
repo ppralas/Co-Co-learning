@@ -260,6 +260,16 @@ class S {
     );
   }
 
+  /// `Bok,`
+  String get hi {
+    return Intl.message(
+      'Bok,',
+      name: 'hi',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Nešto je pošlo po krivu,\npostavke nisu dohvaćene!`
   String get error_screen_message {
     return Intl.message(
@@ -275,6 +285,16 @@ class S {
     return Intl.message(
       'Ponovo dohvati',
       name: 'get_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!`
+  String get rotate_screen {
+    return Intl.message(
+      'Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!',
+      name: 'rotate_screen',
       desc: '',
       args: [],
     );

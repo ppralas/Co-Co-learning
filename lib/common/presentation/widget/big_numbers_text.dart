@@ -9,7 +9,7 @@ class TextWidgetRegular extends StatelessWidget {
       text,
       style: const TextStyle(
         fontFamily: 'JosefinSans',
-        fontSize: 24,
+        fontSize: 50,
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skola/common/presentation/widget/title_widget.dart';
+import 'package:skola/common/presentation/widget/title_text_bolded.dart';
 import 'package:skola/teacher/lesson_designer/data/models/subject.dart';
 
 import '../../../generated/l10n.dart';
@@ -30,7 +30,7 @@ class SubjectPickerState extends ConsumerState<SubjectPicker> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TitleWidget(
+        TitleTextBolded(
           titleText: S.current.subject,
         ),
         const SizedBox(width: 16),
