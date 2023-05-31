@@ -33,11 +33,14 @@ class BigPinkButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              buttonText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 48,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                buttonText,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                ),
               ),
             ),
             const SizedBox(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skola/student/widgets/activity_card.dart';
+import 'package:skola/student/presentation/widgets/activity_card.dart';
 import 'package:skola/theme/app_colors.dart';
 
 class GridScreen extends StatelessWidget {

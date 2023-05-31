@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skola/generated/l10n.dart';
-import 'package:skola/student/screens/template_screen.dart';
+import 'package:skola/student/presentation/screens/template_screens/template_screen.dart';
 import 'package:skola/theme/app_colors.dart';
 
 class ErrorScreen extends StatelessWidget {

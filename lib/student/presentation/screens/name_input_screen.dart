@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:skola/student/widgets/big_pink_button.dart';
+import 'package:skola/student/presentation/screens/rotating_screen.dart';
+import 'package:skola/student/presentation/screens/template_screens/rotating_screen_template.dart';
+import 'package:skola/student/presentation/widgets/big_pink_button.dart';
 import 'package:skola/theme/app_colors.dart';
 
 class NamesInputScreen extends StatefulWidget {
@@ -77,11 +79,19 @@ class _NamesInputScreenState extends State<NamesInputScreen> {
             SizedBox(
               height: 50,
               width: 250,
-              child: BigPinkButton(
-                buttonText: 'Potvrdi',
-                iconImage: Icon(
-                  Icons.check,
-                  color: AppColors.white,
+              child: GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const GridScreen(),
+                  ),
+                ),
+                child: BigPinkButton(
+                  buttonText: 'Potvrdi',
+                  iconImage: Icon(
+                    Icons.check,
+                    color: AppColors.white,
+                  ),
                 ),
               ),
             ),

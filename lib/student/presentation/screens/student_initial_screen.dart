@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:skola/student/screens/template_screen.dart';
+import 'package:skola/student/presentation/screens/template_screens/template_screen.dart';
+import 'package:skola/student/presentation/screens/name_input_screen.dart';
 import 'package:skola/theme/app_colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -12,6 +13,10 @@ class WelcomeScreen extends StatelessWidget {
       buttonText: 'POKRENI',
       headlineText: 'BOK!',
       subtitleText: 'Dobrodošli u CoCo aplikaciju',
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const NamesInputScreen()),
+      ),
       iconImage: Icon(
         Icons.arrow_right,
         color: AppColors.white,

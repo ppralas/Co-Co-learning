@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class TitleText extends StatelessWidget {
   final String titleText;
+
   const TitleText({super.key, required this.titleText});
 
   @override

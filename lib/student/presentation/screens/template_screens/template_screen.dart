@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skola/theme/app_colors.dart';
 
-import '../widgets/big_pink_button.dart';
-import '../widgets/settings_icon.dart';
+import '../../widgets/big_pink_button.dart';
+import '../../widgets/settings_icon.dart';
 
 class TemplateScreen extends StatelessWidget {
   final String headlineText;
@@ -13,6 +13,7 @@ class TemplateScreen extends StatelessWidget {
   final String buttonText;
   final String birdUrlPath;
   final Icon iconImage;
+  final VoidCallback? onTap;
   const TemplateScreen({
     super.key,
     required this.headlineText,
@@ -20,6 +21,7 @@ class TemplateScreen extends StatelessWidget {
     required this.buttonText,
     required this.birdUrlPath,
     required this.iconImage,
+    this.onTap,
   });
 
   @override
@@ -61,9 +63,12 @@ class TemplateScreen extends StatelessWidget {
                 SizedBox(
                   height: 55,
                 ),
-                BigPinkButton(
-                  buttonText: buttonText,
-                  iconImage: iconImage,
+                GestureDetector(
+                  onTap: onTap,
+                  child: BigPinkButton(
+                    buttonText: buttonText,
+                    iconImage: iconImage,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -4,14 +4,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
-import 'package:skola/student/widgets/activity_card.dart';
-import 'package:skola/student/screens/rotating_screen.dart';
-import 'package:skola/student/screens/error_screen.dart';
-import 'package:skola/teacher/lesson_designer/presentation/activity_designer_screen.dart';
+import 'package:skola/student/presentation/widgets/rotation.dart';
+import 'package:skola/student/presentation/screens/dragable_test.dart';
+import 'package:skola/student/presentation/screens/template_screens/text_template_screen.dart';
+import 'package:skola/student/presentation/widgets/activity_card.dart';
+import 'package:skola/student/presentation/screens/rotating_screen.dart';
+import 'package:skola/student/presentation/screens/error_screen.dart';
 
-import 'student/screens/student_initial_screen.dart';
-import 'student/screens/text_input_screen.dart';
-import 'teacher/lesson_designer/domain/notifiers/lesson_designer_notifier.dart';
+import 'student/domain/notifiers/lesson_notifier.dart';
+import 'student/presentation/screens/student_initial_screen.dart';
+import 'student/presentation/screens/name_input_screen.dart';
+import 'student/presentation/screens/task_description_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,17 +34,16 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(lessonDesignerNotifierProvider, (previous, state) {
+    ref.listen(lessonNotifierProvider, (previous, state) {
       state.when(
           initial: () => print('initial'),
           loading: () => print('loading'),
-          loaded: (lessons, grades, subjects) =>
-              print('$grades, $lessons, $subjects'),
+          loaded: (lessons) => print('$lessons,'),
           error: (failure) => print(failure.error));
     });
     return MaterialApp(
       routes: {
-        '/': (context) => GridScreen(),
+        '/': (context) => const LessonDescriptionScreen(),
       },
       locale: const Locale("hr"),
       supportedLocales: S.delegate.supportedLocales,
