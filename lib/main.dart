@@ -4,17 +4,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
+import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
 import 'package:skola/student/presentation/widgets/rotation.dart';
 import 'package:skola/student/presentation/screens/dragable_test.dart';
 import 'package:skola/student/presentation/screens/template_screens/text_template_screen.dart';
 import 'package:skola/student/presentation/widgets/activity_card.dart';
-import 'package:skola/student/presentation/screens/rotating_screen.dart';
+import 'package:skola/student/presentation/screens/grid_screen.dart';
 import 'package:skola/student/presentation/screens/error_screen.dart';
-
-import 'student/domain/notifiers/lesson_notifier.dart';
+import 'student/presentation/screens/exam_done.dart';
 import 'student/presentation/screens/student_initial_screen.dart';
 import 'student/presentation/screens/name_input_screen.dart';
-import 'student/presentation/screens/task_description_screen.dart';
+import 'student/presentation/screens/lesson_description_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +43,7 @@ class MyApp extends ConsumerWidget {
     });
     return MaterialApp(
       routes: {
-        '/': (context) => const LessonDescriptionScreen(),
+        '/': (context) => const WelcomeScreen(),
       },
       locale: const Locale("hr"),
       supportedLocales: S.delegate.supportedLocales,

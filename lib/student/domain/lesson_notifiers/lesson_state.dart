@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:skola/common/domain/entities/failure.dart';
-import 'package:skola/student/data/models/lesson.dart';
+import 'package:skola/student/data/models/lesson/lesson.dart';
 
 part 'lesson_state.freezed.dart';
 

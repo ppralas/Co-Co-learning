@@ -299,6 +299,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Unutar sljedećih 10 minuta: Odaberi riječi u koje možeš ubaciti slovo č.`
+  String get task_description {
+    return Intl.message(
+      'Unutar sljedećih 10 minuta: Odaberi riječi u koje možeš ubaciti slovo č.',
+      name: 'task_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Greska`
+  String get something_wrong {
+    return Intl.message(
+      'Greska',
+      name: 'something_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dobrodošli`
+  String get welcome {
+    return Intl.message(
+      'Dobrodošli',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prvo ime`
+  String get first_name {
+    return Intl.message(
+      'Prvo ime',
+      name: 'first_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Drugo ime`
+  String get second_name {
+    return Intl.message(
+      'Drugo ime',
+      name: 'second_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Treće ime`
+  String get third_name {
+    return Intl.message(
+      'Treće ime',
+      name: 'third_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Četvrto ime`
+  String get forth_name {
+    return Intl.message(
+      'Četvrto ime',
+      name: 'forth_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Potvrdi`
+  String get confirm {
+    return Intl.message(
+      'Potvrdi',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

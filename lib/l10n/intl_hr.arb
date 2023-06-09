@@ -24,6 +24,14 @@
     "hi": "Bok,",
     "error_screen_message": "Nešto je pošlo po krivu,\npostavke nisu dohvaćene!",
     "get_again" : "Ponovo dohvati",
-    "rotate_screen": "Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!"
+    "rotate_screen": "Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!",
+    "task_description": "Unutar sljedećih 10 minuta: Odaberi riječi u koje možeš ubaciti slovo č.",
+    "something_wrong": "Greska",
+    "welcome": "Dobrodošli",
+    "first_name": "Prvo ime",
+    "second_name": "Drugo ime",
+    "third_name": "Treće ime",
+    "forth_name": "Četvrto ime",
+    "confirm": "Potvrdi"
 
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DraggableColumns extends StatefulWidget {
+  const DraggableColumns({super.key});
+
   @override
   _DraggableColumnsState createState() => _DraggableColumnsState();
 }

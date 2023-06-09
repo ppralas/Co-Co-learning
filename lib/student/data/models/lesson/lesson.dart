@@ -8,11 +8,10 @@ part 'lesson.g.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Lesson extends Equatable {
   final bool active;
-
-  // final List<String> answers;
+  final List<String> answers;
   @JsonKey(name: "class")
   final int classroom;
-  //final List<String> correctAnswers;
+  final List<String> correctAnswers;
   final String subject;
   final String subtopic;
   final String taskDescription;
@@ -21,8 +20,8 @@ class Lesson extends Equatable {
   const Lesson(
     this.active,
     this.classroom,
-    // this.answers,
-    // this.correctAnswers,
+    this.answers,
+    this.correctAnswers,
     this.subject,
     this.subtopic,
     this.taskDescription,
@@ -32,8 +31,8 @@ class Lesson extends Equatable {
   List<Object?> get props => [
         classroom,
         active,
-        // answers,
-        // correctAnswers,
+        answers,
+        correctAnswers,
         subject,
         subtopic,
         taskDescription,

@@ -11,6 +11,7 @@ class TitleText extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Text(
         titleText,
+        maxLines: 1,
         style: const TextStyle(
           fontFamily: 'JosefinSans',
           fontSize: 40,

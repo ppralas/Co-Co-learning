@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/datasource/firebase_remote_datasource.dart';
 import 'package:skola/common/domain/either_failure_or.dart';
 import 'package:skola/common/domain/entities/failure.dart';
-import 'package:skola/student/data/models/lesson.dart';
+import 'package:skola/student/data/models/lesson/lesson.dart';
 
 final lessonRepositoryProvider = Provider<LessonRepository>(
   (ref) => LessonDesignerRepositoryImpl(

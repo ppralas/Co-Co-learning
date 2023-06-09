@@ -1,9 +1,8 @@
 import 'dart:developer';
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/domain/utils/dartz_extension.dart';
-import 'package:skola/student/data/repository/lesson_repository_provider.dart';
+import 'package:skola/student/data/repository/lesson_repository/lesson_repository_provider.dart';
 
 import 'lesson_state.dart';
 
