@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/domain/entities/failure.dart';
 import 'package:skola/common/domain/utils/dartz_extension.dart';
-import 'package:skola/student/data/models/student/student.dart';
 import 'package:skola/student/data/repository/student_repository/student_repository_provider.dart';
 
 import 'student_state.dart';
@@ -19,7 +18,7 @@ class StudentNotifier extends StateNotifier<StudentState> {
   final StudentRepository _studentRepository;
   StudentNotifier(this._studentRepository)
       : super(
-          StudentState.initial(),
+          const StudentState.initial(),
         );
   Future<void> init() async {
     state = const StudentState.loading();

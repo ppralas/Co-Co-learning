@@ -65,29 +65,41 @@ class _NamesInputScreenState extends ConsumerState<NamesInputScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   _buildTextFieldContainer(
-                      name1Controller,
-                      S.current.first_name,
-                      AppColors.lightBlue,
-                      name1Provider,
-                      ref),
+                    name1Controller,
+                    S.current.first_name,
+                    AppColors.lightBlue,
+                    name1Provider,
+                    ref,
+                  ),
                   const SizedBox(width: 60),
                   _buildTextFieldContainer(
-                      name2Controller,
-                      S.current.second_name,
-                      AppColors.lightOrange,
-                      name2Provider,
-                      ref),
+                    name2Controller,
+                    S.current.second_name,
+                    AppColors.lightOrange,
+                    name2Provider,
+                    ref,
+                  ),
                 ],
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                _buildTextFieldContainer(name3Controller, S.current.third_name,
-                    AppColors.lightYellow, name3Provider, ref),
+                _buildTextFieldContainer(
+                  name3Controller,
+                  S.current.third_name,
+                  AppColors.lightYellow,
+                  name3Provider,
+                  ref,
+                ),
                 const SizedBox(width: 60),
-                _buildTextFieldContainer(name4Controller, S.current.forth_name,
-                    AppColors.veryLightPurple, name4Provider, ref),
+                _buildTextFieldContainer(
+                  name4Controller,
+                  S.current.forth_name,
+                  AppColors.veryLightPurple,
+                  name4Provider,
+                  ref,
+                ),
               ],
             ),
             const SizedBox(
@@ -111,7 +123,7 @@ class _NamesInputScreenState extends ConsumerState<NamesInputScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const GridScreen(),
+                      builder: (context) => GridScreen(),
                     ),
                   );
                 },

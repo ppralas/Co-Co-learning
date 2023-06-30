@@ -7,6 +7,7 @@ class MyScreenNotifier extends StateNotifier<MyScreenState> {
     state = state.copyWith(
       title: title,
       images: [],
+      description: '',
     );
   }
 
@@ -14,6 +15,7 @@ class MyScreenNotifier extends StateNotifier<MyScreenState> {
     state = state.copyWith(
       subtitle: subtitle,
       images: [],
+      description: '',
     );
   }
 
@@ -27,6 +29,7 @@ class MyScreenNotifier extends StateNotifier<MyScreenState> {
   void setImages(List<String> images) {
     state = state.copyWith(
       images: images,
+      description: '',
     );
   }
 }
@@ -47,13 +50,13 @@ class MyScreenState {
   MyScreenState copyWith({
     String? title,
     String? subtitle,
-    String? description,
+    required String description,
     required List<String> images,
   }) {
     return MyScreenState(
       title: title ?? '',
       subtitle: subtitle ?? '',
-      description: description ?? '',
+      description: description,
       images: images,
     );
   }

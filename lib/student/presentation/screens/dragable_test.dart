@@ -1,111 +1,157 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skola/student/data/models/lesson/lesson.dart';
+import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
+import 'package:skola/student/presentation/screens/grid_screen.dart';
+import 'package:skola/student/presentation/widgets/activity_card.dart';
+import 'package:skola/student/presentation/widgets/lesson_task.dart';
+import 'package:skola/theme/app_colors.dart';
 
-class DraggableColumns extends StatefulWidget {
-  const DraggableColumns({super.key});
+// class LessonListView extends ConsumerWidget {
+//   const LessonListView({super.key});
 
-  @override
-  _DraggableColumnsState createState() => _DraggableColumnsState();
-}
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final state = ref.watch(lessonNotifierProvider);
 
-class _DraggableColumnsState extends State<DraggableColumns> {
-  List<String> sourceItems = ['Item 1', 'Item 2', 'Item 3'];
-  List<String> targetItems = [];
+//     return Scaffold(
+//       body: state.when(
+//         loaded: (data) => LessonView(
+//           lessons: data,
+//           isLoading: false,
+//         ),
+//         error: (failure) {
+//           log(failure.toString());
+//           return Text(failure.error.toString());
+//         },
+//         initial: () {
+//           return const SizedBox();
+//         },
+//         loading: () => const CircularProgressIndicator(),
+//       ),
+//     );
+//   }
+// }
+
+// class LessonView extends ConsumerWidget {
+//   final List<Lesson> lessons;
+//   final bool isLoading;
+
+//   const LessonView({
+//     required this.lessons,
+//     required this.isLoading,
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     return NotificationListener<ScrollNotification>(
+//       onNotification: (notification) {
+//         if (notification.metrics.pixels ==
+//             notification.metrics.maxScrollExtent) {
+//           ref.read(lessonNotifierProvider.notifier).getLesson();
+//         }
+//         return true;
+//       },
+//       child: ListView.separated(
+//         itemBuilder: (BuildContext context, int index) {
+//           if (index == lessons.length) {
+//             return const Center(
+//               child: CircularProgressIndicator(),
+//             );
+//           }
+//           final item = lessons[index];
+//           return Stack(
+//             children: <Widget>[
+//               Column(
+//                 crossAxisAlignment: CrossAxisAlignment.center,
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   const SizedBox(
+//                     height: 10,
+//                   ),
+//                   Text(
+//                     item.answers.toString(),
+//                     style: const TextStyle(
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 10,
+//                   ),
+//                   Text(
+//                     item.correctAnswers.toString(),
+//                     style: const TextStyle(
+//                       fontSize: 8,
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 30,
+//                   ),
+//                 ],
+//               ),
+//             ],
+//           );
+//         },
+//         itemCount: lessons.length + (isLoading ? 1 : 0),
+//         separatorBuilder: (BuildContext context, int index) => const Divider(),
+//       ),
+//     );
+//   }
+// }
+
+class LessonTaskView extends StatelessWidget {
+  const LessonTaskView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Draggable Columns'),
-      ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Column(
         children: [
-          _buildDraggableColumn(sourceItems, 'Source'),
-          _buildDragTargetColumn(targetItems, 'Target'),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: LessonTask(
+                    studentIndex: 0,
+                    backgroundColor: AppColors.lightBlue,
+                    columnColor: AppColors.blue,
+                  ),
+                ),
+                Expanded(
+                  child: LessonTask(
+                    studentIndex: 1,
+                    backgroundColor: AppColors.yellow,
+                    columnColor: AppColors.lightYellow,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: LessonTask(
+                    studentIndex: 2,
+                    backgroundColor: AppColors.lightOrange,
+                    columnColor: AppColors.orange,
+                  ),
+                ),
+                Expanded(
+                  child: LessonTask(
+                    studentIndex: 3,
+                    backgroundColor: AppColors.veryLightPurple,
+                    columnColor: AppColors.lightPurple,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
-    );
-  }
-
-  Widget _buildDraggableColumn(List<String> items, String title) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(title),
-        const SizedBox(height: 16),
-        for (var item in items)
-          Draggable<String>(
-            data: item,
-            feedback: Container(
-              width: 100,
-              height: 50,
-              color: Colors.blue.withOpacity(0.5),
-              child: Center(
-                child: Text(item),
-              ),
-            ),
-            childWhenDragging: Container(
-              width: 100,
-              height: 50,
-              color: Colors.grey,
-              child: Center(
-                child: Text(item),
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 100,
-                height: 50,
-                color: Colors.blue,
-                child: Center(
-                  child: Text(item),
-                ),
-              ),
-            ),
-          ),
-      ],
-    );
-  }
-
-  Widget _buildDragTargetColumn(List<String> items, String title) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(title),
-        const SizedBox(height: 16),
-        DragTarget<String>(
-          builder: (context, candidateData, rejectedData) {
-            return Container(
-              width: 300,
-              height: 100,
-              color: Colors.grey,
-              child: const Center(
-                child: Text('Drop here'),
-              ),
-            );
-          },
-          onWillAccept: (data) {
-            return true;
-          },
-          onAccept: (data) {
-            setState(() {
-              sourceItems.remove(data);
-              targetItems.add(data);
-            });
-          },
-        ),
-        const SizedBox(height: 16),
-        for (var item in items)
-          Container(
-            width: 100,
-            height: 50,
-            color: Colors.green,
-            child: Center(
-              child: Text(item),
-            ),
-          ),
-      ],
     );
   }
 }

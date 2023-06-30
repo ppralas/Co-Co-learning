@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -5,6 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
+import 'package:skola/student/presentation/screens/template_screens/grid_screen_template.dart';
+import 'package:skola/student/presentation/widgets/lesson_task.dart';
 import 'package:skola/student/presentation/widgets/rotation.dart';
 import 'package:skola/student/presentation/screens/dragable_test.dart';
 import 'package:skola/student/presentation/screens/template_screens/text_template_screen.dart';
@@ -36,14 +40,14 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(lessonNotifierProvider, (previous, state) {
       state.when(
-          initial: () => print('initial'),
-          loading: () => print('loading'),
-          loaded: (lessons) => print('$lessons,'),
-          error: (failure) => print(failure.error));
+          initial: () => log('initial'),
+          loading: () => log('loading'),
+          loaded: (lessons) => log('$lessons,'),
+          error: (failure) => log(failure.error));
     });
     return MaterialApp(
       routes: {
-        '/': (context) => const WelcomeScreen(),
+        '/': (context) => const LessonTaskView(),
       },
       locale: const Locale("hr"),
       supportedLocales: S.delegate.supportedLocales,

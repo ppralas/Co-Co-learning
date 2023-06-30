@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:skola/common/presentation/widget/subtitle_text.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
-import 'package:skola/common/presentation/widget/title_text_regular.dart';
 import 'package:skola/generated/l10n.dart';
 
 class TaskDescription extends StatefulWidget {

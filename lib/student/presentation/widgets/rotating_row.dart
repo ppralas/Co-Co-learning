@@ -6,8 +6,12 @@ import 'package:skola/student/presentation/widgets/activity_card.dart';
 
 class RotatingRow extends ConsumerStatefulWidget {
   final int index;
-  final Function(bool value) onChecked;
-  const RotatingRow({super.key, required this.index, required this.onChecked});
+  final Function(bool value)? onChecked;
+  const RotatingRow({
+    super.key,
+    required this.index,
+    this.onChecked,
+  });
 
   @override
   _RotatingRowState createState() => _RotatingRowState();
@@ -41,7 +45,7 @@ class _RotatingRowState extends ConsumerState<RotatingRow> {
           onTap: () {
             setState(() {
               _isMarked = !_isMarked;
-              widget.onChecked(_isMarked);
+              widget.onChecked!(_isMarked);
             });
           },
           child: Container(

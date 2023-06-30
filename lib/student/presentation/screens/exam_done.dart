@@ -17,7 +17,7 @@ class ExamDone extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: Colors.blue,
-                    child: Center(
+                    child: const Center(
                       child: Text('Container 1'),
                     ),
                   ),
@@ -25,7 +25,7 @@ class ExamDone extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: Colors.green,
-                    child: Center(
+                    child: const Center(
                       child: Text('Container 2'),
                     ),
                   ),
@@ -39,7 +39,7 @@ class ExamDone extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: Colors.yellow,
-                    child: Center(
+                    child: const Center(
                       child: Text('Container 3'),
                     ),
                   ),
@@ -47,7 +47,7 @@ class ExamDone extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: Colors.orange,
-                    child: Center(
+                    child: const Center(
                       child: Text('Container 4'),
                     ),
                   ),

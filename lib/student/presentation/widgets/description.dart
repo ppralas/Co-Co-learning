@@ -2,29 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/common/presentation/widget/subtitle_text.dart';
-import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/student_notifiers/student_notifier.dart';
 import 'package:skola/student/presentation/widgets/rotating_row.dart';
 
-class ActivityCardTile extends ConsumerStatefulWidget {
+class DescriptionScreen extends ConsumerWidget {
   final Color color;
   final int studentIndex;
-  final Function(bool value)? onChecked;
+  final Function(bool value) onChecked;
+  final String? subtitleText;
+  final String? descriptionString;
 
-  const ActivityCardTile({
+  const DescriptionScreen({
     super.key,
     required this.color,
     required this.studentIndex,
-    this.onChecked,
+    required this.onChecked,
+    this.descriptionString,
+    this.subtitleText,
   });
 
   @override
-  _ActivityCardTileState createState() => _ActivityCardTileState();
-}
-
-class _ActivityCardTileState extends ConsumerState<ActivityCardTile> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final orientation = ref.watch(orientationProvider);
 
     return Padding(
@@ -33,7 +31,7 @@ class _ActivityCardTileState extends ConsumerState<ActivityCardTile> {
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: widget.color,
+          color: color,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(4),
             topRight: Radius.circular(24),
@@ -49,29 +47,29 @@ class _ActivityCardTileState extends ConsumerState<ActivityCardTile> {
             80,
           ),
           child: Transform.rotate(
-            angle: orientation[widget.studentIndex],
+            angle: orientation[studentIndex],
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SubtitleText(
-                  text: S.current.hi,
+                  text: subtitleText.toString(),
                 ),
                 RegularText(
                   text: ref.watch(studentNotifierProvider).maybeWhen(
                         orElse: () => '',
-                        loaded: (name) => name[widget.studentIndex].studentName,
+                        loaded: (name) => name[studentIndex].studentName,
                       ),
                 ),
                 const SizedBox(
                   height: 36,
                 ),
-                RegularText(text: S.current.rotate_screen),
+                RegularText(text: descriptionString.toString()),
                 const SizedBox(
                   height: 36,
                 ),
                 RotatingRow(
-                  index: widget.studentIndex,
-                  onChecked: widget.onChecked,
+                  index: studentIndex,
+                  onChecked: onChecked,
                 ),
               ],
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 abstract class AppColors {
   static final Color black = HexColor.fromHex('#000000');

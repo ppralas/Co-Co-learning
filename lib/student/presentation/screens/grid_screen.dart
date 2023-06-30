@@ -14,6 +14,7 @@ class GridScreen extends StatefulWidget {
 
 class _GridScreenState extends State<GridScreen> {
   bool _isAllChecked = false;
+  late Function(bool) isChecked;
   List<bool> checked = [false, false, false, false];
 
   @override
