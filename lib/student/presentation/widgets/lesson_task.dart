@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
@@ -11,15 +13,27 @@ class LessonTask extends ConsumerWidget {
   final Color columnColor;
   final int studentIndex;
 
-  const LessonTask({
-    super.key,
+  LessonTask({
+    Key? key,
     required this.backgroundColor,
     required this.columnColor,
     required this.studentIndex,
-  });
+  }) : super(key: key);
+
+  List<String> firstColumnItems = [];
+  List<String> secondColumnItems = [];
+
+  void moveToSecondColumn(int index) {
+    if (index >= 0 && index < firstColumnItems.length) {
+      final item = firstColumnItems.removeAt(index);
+      secondColumnItems.add(item);
+    }
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final lessonState = ref.watch(lessonNotifierProvider);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -37,7 +51,9 @@ class LessonTask extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
+                        padding: const EdgeInsets.only(
+                          left: 8.0,
+                        ),
                         child: RegularText(
                           text: ref.watch(studentNotifierProvider).maybeWhen(
                                 orElse: () => '',
@@ -81,8 +97,49 @@ class LessonTask extends ConsumerWidget {
                         ),
                         height: 270,
                         width: 300,
-                        child: const Text('Test'),
-                      )
+                        child: lessonState.when(
+                          loading: () =>
+                              const Center(child: CircularProgressIndicator()),
+                          error: (error) =>
+                              Center(child: Text('Error: ${error.toString()}')),
+                          loaded: (lessons) {
+                            if (lessons.isEmpty) {
+                              return const SizedBox();
+                            } else {
+                              return Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Wrap(
+                                      children: lessons.first.correctAnswers
+                                          .asMap()
+                                          .entries
+                                          .map((entry) => WordDisplayCard(
+                                                word: entry.value,
+                                                onTap: () => moveToSecondColumn(
+                                                    entry.key),
+                                              ))
+                                          .toList(),
+                                    ),
+                                  ),
+                                  Wrap(
+                                    children: lessons.first.answers
+                                        .asMap()
+                                        .entries
+                                        .map((entry) => WordDisplayCard(
+                                              word: entry.value,
+                                              onTap: () =>
+                                                  moveToSecondColumn(entry.key),
+                                            ))
+                                        .toList(),
+                                  ),
+                                ],
+                              );
+                            }
+                          },
+                          initial: () => const SizedBox(),
+                        ),
+                      ),
                     ],
                   ),
                   Column(
@@ -94,8 +151,12 @@ class LessonTask extends ConsumerWidget {
                         ),
                         height: 270,
                         width: 300,
-                        child: const Text('Test'),
-                      )
+                        child: Column(
+                          children: secondColumnItems
+                              .map((item) => Text(item))
+                              .toList(),
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -113,6 +174,33 @@ class LessonTask extends ConsumerWidget {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WordDisplayCard extends StatelessWidget {
+  final String word;
+  final VoidCallback? onTap;
+
+  const WordDisplayCard({
+    Key? key,
+    required this.word,
+    this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Text(
+            word,
+            style: const TextStyle(fontSize: 24),
           ),
         ),
       ),

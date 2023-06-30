@@ -7,18 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
-import 'package:skola/student/presentation/screens/template_screens/grid_screen_template.dart';
-import 'package:skola/student/presentation/widgets/lesson_task.dart';
-import 'package:skola/student/presentation/widgets/rotation.dart';
-import 'package:skola/student/presentation/screens/dragable_test.dart';
-import 'package:skola/student/presentation/screens/template_screens/text_template_screen.dart';
-import 'package:skola/student/presentation/widgets/activity_card.dart';
-import 'package:skola/student/presentation/screens/grid_screen.dart';
-import 'package:skola/student/presentation/screens/error_screen.dart';
-import 'student/presentation/screens/exam_done.dart';
-import 'student/presentation/screens/student_initial_screen.dart';
-import 'student/presentation/screens/name_input_screen.dart';
-import 'student/presentation/screens/lesson_description_screen.dart';
+import 'package:skola/student/presentation/screens/lesson_task_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

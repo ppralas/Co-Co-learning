@@ -123,7 +123,7 @@ class _NamesInputScreenState extends ConsumerState<NamesInputScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => GridScreen(),
+                      builder: (context) => const GridScreen(),
                     ),
                   );
                 },
