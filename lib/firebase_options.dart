@@ -4,16 +4,6 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
-/// Default [FirebaseOptions] for use with your Firebase apps.
-///
-/// Example:
-/// ```dart
-/// import 'firebase_options.dart';
-/// // ...
-/// await Firebase.initializeApp(
-///   options: DefaultFirebaseOptions.currentPlatform,
-/// );
-/// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -49,7 +39,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '847310509',
     projectId: 'coco-learning',
     authDomain: 'coco-learning.firebaseapp.com',
-    databaseURL: 'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'coco-learning.appspot.com',
     measurementId: 'G-70K620CFE1',
   );
@@ -59,7 +50,8 @@ class DefaultFirebaseOptions {
     appId: '1:847310509:android:f7b1840d4021e49d9b6024',
     messagingSenderId: '847310509',
     projectId: 'coco-learning',
-    databaseURL: 'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'coco-learning.appspot.com',
   );
 
@@ -68,9 +60,11 @@ class DefaultFirebaseOptions {
     appId: '1:847310509:ios:dc2e433a6e6cf1ac9b6024',
     messagingSenderId: '847310509',
     projectId: 'coco-learning',
-    databaseURL: 'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'coco-learning.appspot.com',
-    iosClientId: '847310509-q4q0pv30ii7h87q4efc8khkq84206b0c.apps.googleusercontent.com',
+    iosClientId:
+        '847310509-q4q0pv30ii7h87q4efc8khkq84206b0c.apps.googleusercontent.com',
     iosBundleId: 'com.example.skola',
   );
 
@@ -79,9 +73,11 @@ class DefaultFirebaseOptions {
     appId: '1:847310509:ios:dc2e433a6e6cf1ac9b6024',
     messagingSenderId: '847310509',
     projectId: 'coco-learning',
-    databaseURL: 'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://coco-learning-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'coco-learning.appspot.com',
-    iosClientId: '847310509-q4q0pv30ii7h87q4efc8khkq84206b0c.apps.googleusercontent.com',
+    iosClientId:
+        '847310509-q4q0pv30ii7h87q4efc8khkq84206b0c.apps.googleusercontent.com',
     iosBundleId: 'com.example.skola',
   );
 }

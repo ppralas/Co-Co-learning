@@ -23,10 +23,10 @@ class BravoScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Container(
-                  child: const Row(
+                  child: Row(
                     children: [
                       IconButton(
-                        icon: Icons.arrow_back_ios_new,
+                        icon: const Icon(Icons.arrow_back_ios_new),
                         onPressed: () {},
                       )
                     ],

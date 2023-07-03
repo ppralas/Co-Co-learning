@@ -44,7 +44,7 @@ class _NamesInputScreenState extends ConsumerState<NamesInputScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Text(
               'DOBRODOSLI!',
               style: TextStyle(fontSize: 90, color: AppColors.purple),

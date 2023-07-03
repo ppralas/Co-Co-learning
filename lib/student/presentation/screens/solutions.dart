@@ -4,9 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/common/presentation/widget/title_text_regular.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
-import 'package:skola/student/presentation/widgets/big_pink_button.dart';
 import 'package:skola/student/presentation/widgets/button_no_icon.dart';
-import 'package:skola/student/presentation/widgets/lesson_task.dart';
+import 'package:skola/student/presentation/widgets/word_display_card.dart';
 import 'package:skola/theme/app_colors.dart';
 
 class SolutionsScreen extends ConsumerWidget {

@@ -1,5 +1,6 @@
 // ignore_for_file: no_logic_in_create_state
-import 'package:dartz/dartz.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:skola/common/presentation/widget/subtitle_text.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
@@ -18,23 +19,14 @@ class CardTileTemplate extends StatefulWidget {
       required this.text});
 
   @override
-  CardTileTemplateState createState() => CardTileTemplateState(
-        color,
-        headerText,
-        nameText,
-        text,
-      );
+  CardTileTemplateState createState() => CardTileTemplateState();
 }
 
 class CardTileTemplateState extends State<CardTileTemplate> {
-  final String headerText;
-  final String nameText;
-  final String text;
-  final Color color;
   double _rotationAngle = 0;
   bool _isMarked = false;
 
-  CardTileTemplateState(this.color, this.headerText, this.nameText, this.text);
+  CardTileTemplateState();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +36,7 @@ class CardTileTemplateState extends State<CardTileTemplate> {
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: color,
+          color: widget.color,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(4),
             topRight: Radius.circular(24),
@@ -65,13 +57,17 @@ class CardTileTemplateState extends State<CardTileTemplate> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SubtitleText(
-                  text: headerText,
+                  text: widget.headerText,
                 ),
-                TitleText(titleText: nameText),
+                TitleText(
+                  titleText: widget.nameText,
+                ),
                 const SizedBox(
                   height: 36,
                 ),
-                RegularText(text: text),
+                RegularText(
+                  text: widget.text,
+                ),
                 const SizedBox(
                   height: 36,
                 ),

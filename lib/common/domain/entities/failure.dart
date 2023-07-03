@@ -18,7 +18,6 @@ class Failure extends Equatable {
     StackTrace? stackTrace,
   }) =>
       Failure._(
-        //TODO: pretvoriti string u arb
         title: title ?? 'Unknown error occurred',
         error: error,
         stackTrace: stackTrace,

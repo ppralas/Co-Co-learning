@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/common/presentation/widget/subtitle_text.dart';
 import 'package:skola/student/domain/student_notifiers/student_notifier.dart';
+import 'package:skola/student/presentation/widgets/activity_card.dart';
 import 'package:skola/student/presentation/widgets/rotating_row.dart';
 
 class DescriptionScreen extends ConsumerWidget {
@@ -79,8 +80,3 @@ class DescriptionScreen extends ConsumerWidget {
     );
   }
 }
-
-//ovo sluzi za zadrzavanje statea i orjentacije
-final orientationProvider = StateProvider<List<double>>((ref) {
-  return [0, 0, 0, 0];
-});

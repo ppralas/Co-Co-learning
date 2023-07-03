@@ -8,6 +8,7 @@ import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
 import 'package:skola/student/presentation/screens/lesson_task_view.dart';
+import 'package:skola/student/presentation/screens/student_initial_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
