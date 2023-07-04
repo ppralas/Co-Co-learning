@@ -28,6 +28,8 @@ dependencies:
   dartz: ^0.10.1
   hexcolor: ^3.0.1
   flutter_svg: ^2.0.5
+  device_info_plus: ^9.0.2
+  unique_identifier: ^0.3.0
 
 flutter_intl:
   main_locale: hr

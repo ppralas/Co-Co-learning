@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
@@ -13,6 +15,7 @@ import 'package:skola/student/presentation/widgets/word_display_card.dart';
 class LessonTask extends ConsumerStatefulWidget {
   final Color backgroundColor;
   final Color columnColor;
+
   final int studentIndex;
   final Function(bool value)? onChecked;
 
@@ -53,148 +56,176 @@ class LessonTaskState extends ConsumerState<LessonTask> {
     final lessonState = ref.watch(lessonNotifierProvider);
     final orientation = ref.watch(orientationProvider);
 
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Transform.rotate(
-          angle: orientation[widget.studentIndex],
-          child: Container(
-            decoration: BoxDecoration(
-              color: widget.backgroundColor,
-              borderRadius: BorderRadius.circular(10),
+    final isRowLayout = orientation[widget.studentIndex] == pi / 2 ||
+        orientation[widget.studentIndex] == 3 * pi / 2;
+
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Transform.rotate(
+        angle: orientation[widget.studentIndex],
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(4),
+              topRight: Radius.circular(24),
+              bottomLeft: Radius.circular(24),
+              bottomRight: Radius.circular(4),
             ),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            left: 8.0,
-                          ),
-                          child: RegularText(
-                            text: ref.watch(studentNotifierProvider).maybeWhen(
-                                  orElse: () => '',
-                                  loaded: (name) =>
-                                      name[widget.studentIndex].studentName,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            lessonState.maybeWhen(
-                              loaded: (lessons) =>
-                                  lessons.first.taskDescription,
-                              orElse: () => 'Greska',
-                            ),
-                            maxLines: 2,
-                            style: const TextStyle(
-                              fontFamily: 'JosefinSans',
-                              fontSize: 26,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const TitleTextBolded(
-                      titleText: '10:00',
-                    ),
-                  ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              10,
+              8,
+              12,
+              8,
+            ),
+            child: Transform.rotate(
+              angle: orientation[widget.studentIndex],
+              child: Container(
+                decoration: BoxDecoration(
+                  color: widget.backgroundColor,
                 ),
-                const SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: Column(
                   children: [
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: widget.columnColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 270,
-                          width: 300,
-                          child: lessonState.when(
-                            loading: () => const Center(
-                                child: CircularProgressIndicator()),
-                            error: (error) => Center(
-                                child: Text('Error: ${error.toString()}')),
-                            loaded: (lessons) {
-                              if (lessons.isEmpty) {
-                                return const SizedBox();
-                              } else {
-                                if (firstColumnItems.isEmpty &&
-                                    secondColumnItems.isEmpty) {
-                                  firstColumnItems = List.of(
-                                      lessons.first.answers +
-                                          lessons.first.correctAnswers)
-                                    ..shuffle();
-                                }
-                                return Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Wrap(
-                                    children: firstColumnItems
-                                        .asMap()
-                                        .entries
-                                        .map((entry) => WordDisplayCard(
-                                              word: entry.value,
-                                              onTap: () => moveToSecondColumn(
-                                                entry.key,
-                                              ),
-                                            ))
-                                        .toList(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            RegularText(
+                              text: ref
+                                  .watch(studentNotifierProvider)
+                                  .maybeWhen(
+                                    orElse: () => '',
+                                    loaded: (name) =>
+                                        name[widget.studentIndex].studentName,
                                   ),
-                                );
-                              }
-                            },
-                            initial: () => const SizedBox(),
-                          ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                lessonState.maybeWhen(
+                                  loaded: (lessons) =>
+                                      lessons.first.taskDescription,
+                                  orElse: () => 'Greska',
+                                ),
+                                maxLines: 2,
+                                style: const TextStyle(
+                                  fontFamily: 'JosefinSans',
+                                  fontSize: 26,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const TitleTextBolded(
+                          titleText: '10:00',
                         ),
                       ],
                     ),
-                    Column(
+                    const SizedBox(height: 40),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: widget.columnColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 270,
-                          width: 300,
-                          child: Column(
-                            children: secondColumnItems
-                                .asMap()
-                                .entries
-                                .map((entry) => WordDisplayCard(
-                                      word: entry.value,
-                                      onTap: () => moveToFirstColumn(
-                                        entry.key,
-                                      ),
-                                    ))
-                                .toList(),
-                          ),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: widget.columnColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                height: isRowLayout ? 300 : 270,
+                                width: isRowLayout ? 270 : 300,
+                                child: lessonState.when(
+                                  loading: () => const Center(
+                                      child: CircularProgressIndicator()),
+                                  error: (error) => Center(
+                                      child:
+                                          Text('Error: ${error.toString()}')),
+                                  loaded: (lessons) {
+                                    if (lessons.isEmpty) {
+                                      return const SizedBox();
+                                    } else {
+                                      if (firstColumnItems.isEmpty &&
+                                          secondColumnItems.isEmpty) {
+                                        firstColumnItems = List.of(
+                                            lessons.first.answers +
+                                                lessons.first.correctAnswers)
+                                          ..shuffle();
+                                      }
+                                      return Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Wrap(
+                                          children: firstColumnItems
+                                              .asMap()
+                                              .entries
+                                              .map((entry) => WordDisplayCard(
+                                                    word: entry.value,
+                                                    onTap: () =>
+                                                        moveToSecondColumn(
+                                                      entry.key,
+                                                    ),
+                                                  ))
+                                              .toList(),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  initial: () => const SizedBox(),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: widget.columnColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  children: secondColumnItems
+                                      .asMap()
+                                      .entries
+                                      .map((entry) => WordDisplayCard(
+                                            word: entry.value,
+                                            onTap: () => moveToFirstColumn(
+                                              entry.key,
+                                            ),
+                                          ))
+                                      .toList(),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        left: 8.0,
+                        right: 10,
+                      ),
+                      child: RotatingRow(
+                        index: 0,
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(
-                    left: 8.0,
-                    right: 10,
-                  ),
-                  child: RotatingRow(
-                    index: 0,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

@@ -3,16 +3,16 @@ import 'package:skola/student/presentation/screens/lesson_description_screen.dar
 import 'package:skola/student/presentation/widgets/activity_card.dart';
 import 'package:skola/theme/app_colors.dart';
 
-class GridScreen extends StatefulWidget {
-  const GridScreen({
+class OrientationScreen extends StatefulWidget {
+  const OrientationScreen({
     super.key,
   });
 
   @override
-  State<GridScreen> createState() => _GridScreenState();
+  State<OrientationScreen> createState() => _OrientationScreenState();
 }
 
-class _GridScreenState extends State<GridScreen> {
+class _OrientationScreenState extends State<OrientationScreen> {
   bool _isAllChecked = false;
   late Function(bool) isChecked;
   List<bool> checked = [false, false, false, false];

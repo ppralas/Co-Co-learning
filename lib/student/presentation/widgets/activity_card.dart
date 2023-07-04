@@ -26,6 +26,7 @@ class _ActivityCardTileState extends ConsumerState<ActivityCardTile> {
   @override
   Widget build(BuildContext context) {
     final orientation = ref.watch(orientationProvider);
+    final studentName = ref.watch(studentNotifierProvider);
 
     return Padding(
       padding: const EdgeInsets.all(12.0),
@@ -57,10 +58,10 @@ class _ActivityCardTileState extends ConsumerState<ActivityCardTile> {
                   text: S.current.hi,
                 ),
                 RegularText(
-                  text: ref.watch(studentNotifierProvider).maybeWhen(
-                        orElse: () => '',
-                        loaded: (name) => name[widget.studentIndex].studentName,
-                      ),
+                  text: studentName.maybeWhen(
+                    orElse: () => '',
+                    loaded: (name) => name[widget.studentIndex].studentName,
+                  ),
                 ),
                 const SizedBox(
                   height: 36,

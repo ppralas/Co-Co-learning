@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/common/presentation/widget/title_text_regular.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
+import 'package:skola/student/presentation/screens/end_screen.dart';
 import 'package:skola/student/presentation/widgets/button_no_icon.dart';
 import 'package:skola/student/presentation/widgets/word_display_card.dart';
 import 'package:skola/theme/app_colors.dart';
@@ -130,8 +131,17 @@ class SolutionsScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 48),
-            const ButtonNoIcon(
-              buttonText: 'Završi',
+            InkWell(
+              child: ButtonNoIcon(
+                buttonText: 'Završi',
+                onTap: () {},
+              ),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EndScreen(),
+                ),
+              ),
             ),
           ],
         ),

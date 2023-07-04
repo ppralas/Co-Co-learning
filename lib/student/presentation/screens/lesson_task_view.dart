@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skola/student/presentation/screens/solutions.dart';
+import 'package:skola/student/presentation/screens/template_screens/grid_screen_template.dart';
 import 'package:skola/student/presentation/widgets/lesson_task.dart';
 import 'package:skola/theme/app_colors.dart';
 
@@ -16,66 +17,42 @@ class LessonTaskViewState extends State<LessonTaskView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: LessonTask(
-                    studentIndex: 0,
-                    backgroundColor: AppColors.lightBlue,
-                    columnColor: AppColors.blue,
-                    onChecked: (value) {
-                      checked[0] = value;
-                      _onCardChecked();
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: LessonTask(
-                    studentIndex: 1,
-                    backgroundColor: AppColors.yellow,
-                    columnColor: AppColors.lightYellow,
-                    onChecked: (value) {
-                      checked[1] = value;
-                      _onCardChecked();
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: LessonTask(
-                    studentIndex: 2,
-                    backgroundColor: AppColors.lightOrange,
-                    columnColor: AppColors.orange,
-                    onChecked: (value) {
-                      checked[2] = value;
-                      _onCardChecked();
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: LessonTask(
-                    studentIndex: 3,
-                    backgroundColor: AppColors.veryLightPurple,
-                    columnColor: AppColors.lightPurple,
-                    onChecked: (value) {
-                      checked[3] = value;
-                      _onCardChecked();
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+    return GridScreenTemplate(
+      widget1: LessonTask(
+        studentIndex: 0,
+        backgroundColor: AppColors.lightBlue,
+        columnColor: AppColors.blue,
+        onChecked: (value) {
+          checked[0] = value;
+          _onCardChecked();
+        },
+      ),
+      widget2: LessonTask(
+        studentIndex: 1,
+        backgroundColor: AppColors.lightOrange,
+        columnColor: AppColors.orange,
+        onChecked: (value) {
+          checked[0] = value;
+          _onCardChecked();
+        },
+      ),
+      widget3: LessonTask(
+        studentIndex: 2,
+        backgroundColor: AppColors.lightYellow,
+        columnColor: AppColors.yellow,
+        onChecked: (value) {
+          checked[0] = value;
+          _onCardChecked();
+        },
+      ),
+      widget4: LessonTask(
+        studentIndex: 3,
+        backgroundColor: AppColors.veryLightPurple,
+        columnColor: AppColors.purple,
+        onChecked: (value) {
+          checked[0] = value;
+          _onCardChecked();
+        },
       ),
     );
   }

@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skola/student/presentation/widgets/button_no_icon.dart';
 import 'package:skola/theme/app_colors.dart';
 
-class BravoScreen extends StatelessWidget {
-  const BravoScreen({
+class EndScreen extends StatelessWidget {
+  const EndScreen({
     super.key,
   });
 
@@ -22,15 +22,13 @@ class BravoScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Container(
-                  child: Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new),
-                        onPressed: () {},
-                      )
-                    ],
-                  ),
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new),
+                      onPressed: () {},
+                    )
+                  ],
                 ),
                 SvgPicture.asset('Assets/images/branch.svg'),
               ],
@@ -52,9 +50,18 @@ class BravoScreen extends StatelessWidget {
                   height: 55,
                 ),
                 GestureDetector(
-                  child: const ButtonNoIcon(
+                  child: ButtonNoIcon(
                     buttonText: 'ZAVRŠI',
+                    onTap: () {},
                   ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                SvgPicture.asset(
+                  'Assets/images/happy_bird.svg',
+                  height: 260,
                 ),
               ],
             ),

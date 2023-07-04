@@ -7,18 +7,16 @@ import 'package:skola/generated/l10n.dart';
 
 class TaskDescription extends StatefulWidget {
   final Color color;
+
   const TaskDescription({super.key, required this.color});
 
   @override
-  TaskDescriptionState createState() => TaskDescriptionState(color);
+  TaskDescriptionState createState() => TaskDescriptionState();
 }
 
 class TaskDescriptionState extends State<TaskDescription> {
-  final Color color;
   double _rotationAngle = 0;
   bool _isMarked = false;
-
-  TaskDescriptionState(this.color);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class TaskDescriptionState extends State<TaskDescription> {
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
-          color: color,
+          color: widget.color,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(4),
             topRight: Radius.circular(24),
