@@ -37,6 +37,9 @@ class _RotatingRowState extends ConsumerState<RotatingRow> {
               ref.read(orientationProvider),
             );
             orientation[widget.index] += pi / 2;
+            if (orientation[widget.index] == 2 * pi) {
+              orientation[widget.index] = 0;
+            }
             ref
                 .read(orientationProvider.notifier)
                 .update((state) => orientation);

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skola/student/presentation/widgets/button_no_icon.dart';
@@ -49,12 +51,11 @@ class EndScreen extends StatelessWidget {
                 const SizedBox(
                   height: 55,
                 ),
-                GestureDetector(
-                  child: ButtonNoIcon(
-                    buttonText: 'ZAVRŠI',
-                    onTap: () {},
-                  ),
-                ),
+                InkWell(
+                    child: const ButtonNoIcon(
+                      buttonText: 'ZAVRŠI',
+                    ),
+                    onTap: () => exit(0)),
               ],
             ),
             Row(

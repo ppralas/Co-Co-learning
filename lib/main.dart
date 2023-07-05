@@ -8,10 +8,15 @@ import 'package:skola/firebase_options.dart';
 import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
 import 'package:skola/student/presentation/screens/exam_done.dart';
+import 'package:skola/student/presentation/screens/lesson_description_screen.dart';
+import 'package:skola/student/presentation/screens/lesson_task_view.dart';
+import 'package:skola/student/presentation/screens/solutions.dart';
+import 'package:skola/student/presentation/screens/welcome_screen.dart';
 
 import 'dart:math';
 
-import 'package:skola/student/presentation/screens/welcome_screen.dart';
+import 'package:skola/student/presentation/widgets/lesson_task.dart';
+import 'package:skola/student/presentation/widgets/task_description.dart';
 
 String generateDeviceId() {
   final Random random = Random();
@@ -52,7 +57,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp(
       routes: {
-        '/': (context) => const ExamDone(),
+        '/': (context) => const LessonTaskView(),
       },
       locale: const Locale("hr"),
       supportedLocales: S.delegate.supportedLocales,

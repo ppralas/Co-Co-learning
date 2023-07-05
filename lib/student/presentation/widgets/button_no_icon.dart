@@ -3,11 +3,10 @@ import 'package:skola/theme/app_colors.dart';
 
 class ButtonNoIcon extends StatelessWidget {
   final String buttonText;
-  final VoidCallback onTap;
+
   const ButtonNoIcon({
     super.key,
     required this.buttonText,
-    required this.onTap,
   });
 
   @override

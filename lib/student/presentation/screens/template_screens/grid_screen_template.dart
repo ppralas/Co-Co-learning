@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:skola/theme/app_colors.dart';
 
 class GridScreenTemplate extends StatelessWidget {
   final Widget widget1;

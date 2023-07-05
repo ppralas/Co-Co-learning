@@ -132,9 +132,8 @@ class SolutionsScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 48),
             InkWell(
-              child: ButtonNoIcon(
+              child: const ButtonNoIcon(
                 buttonText: 'Završi',
-                onTap: () {},
               ),
               onTap: () => Navigator.push(
                 context,

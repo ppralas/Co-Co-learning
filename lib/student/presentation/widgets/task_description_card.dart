@@ -84,7 +84,7 @@ class _TaskDescriptionCardState extends ConsumerState<TaskDescriptionCard> {
                       ),
                 ),
                 RotatingRow(
-                  index: 0,
+                  index: widget.studentIndex,
                   onChecked: widget.onChecked,
                 ),
               ],

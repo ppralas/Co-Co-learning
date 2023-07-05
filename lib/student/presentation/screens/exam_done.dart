@@ -4,8 +4,6 @@ import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/common/presentation/widget/title_text_bolded.dart';
 import 'package:skola/student/presentation/screens/solutions.dart';
 import 'package:skola/student/presentation/screens/template_screens/grid_screen_template.dart';
-import 'package:skola/student/presentation/widgets/activity_card.dart';
-import 'package:skola/student/presentation/widgets/exam_done_card.dart';
 import 'package:skola/theme/app_colors.dart';
 
 class ExamDone extends ConsumerWidget {
