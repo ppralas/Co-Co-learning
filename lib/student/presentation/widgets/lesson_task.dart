@@ -1,30 +1,31 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/common/presentation/widget/title_text_bolded.dart';
+import 'package:skola/generated/l10n.dart';
+import 'package:skola/student/data/models/lesson/lesson.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
 import 'package:skola/student/domain/student_notifiers/student_notifier.dart';
+import 'package:skola/student/presentation/screens/exam_done_screen.dart';
+import 'package:skola/student/presentation/screens/options_screen.dart';
 import 'package:skola/student/presentation/widgets/activity_card.dart';
 import 'package:skola/student/presentation/widgets/rotating_row.dart';
-import 'package:skola/student/presentation/widgets/wait_for_other_students.dart';
 import 'package:skola/student/presentation/widgets/word_display_card.dart';
 
 class LessonTask extends ConsumerStatefulWidget {
   final Color backgroundColor;
   final Color columnColor;
-
-  final int studentIndex;
   final Function(bool value)? onChecked;
+  final int studentIndex;
 
   const LessonTask({
     Key? key,
     required this.backgroundColor,
     required this.columnColor,
     required this.studentIndex,
-    this.onChecked,
+    required this.onChecked,
   }) : super(key: key);
 
   @override
@@ -32,11 +33,13 @@ class LessonTask extends ConsumerStatefulWidget {
 }
 
 class LessonTaskState extends ConsumerState<LessonTask> {
+  late Function(bool) isChecked;
+  List<bool> checked = [false, false, false, false];
   List<String> firstColumnItems = [];
   List<String> secondColumnItems = [];
 
   late Timer countdownTimer;
-  int countdownSeconds = 600;
+  late int countdownSeconds;
 
   @override
   void initState() {
@@ -56,24 +59,29 @@ class LessonTaskState extends ConsumerState<LessonTask> {
   }
 
   void startCountdown() {
+    final countdownDurationMinutes =
+        ref.read(timeProvider); // Retrieve countdown duration in minutes
+    final countdownDurationSeconds =
+        countdownDurationMinutes * 60; // Convert minutes to seconds
+    countdownSeconds =
+        countdownDurationSeconds; // Initialize countdownSeconds with the converted duration
     countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         countdownSeconds--;
         if (countdownSeconds == 0) {
           timer.cancel();
-          navigateToWaitForOtherStudents();
+          navigateToSomethingWrongPage();
         }
       });
     });
   }
 
-  void navigateToWaitForOtherStudents() {
-    Navigator.push(
+  void navigateToSomethingWrongPage() {
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-          builder: (context) => WaitForOtherStudents(
-                studentIndex: widget.studentIndex,
-              )),
+        builder: (context) => const ExamDoneScreen(),
+      ),
     );
   }
 
@@ -157,7 +165,7 @@ class LessonTaskState extends ConsumerState<LessonTask> {
                               lessonState.maybeWhen(
                                 loaded: (lessons) =>
                                     lessons.first.taskDescription,
-                                orElse: () => 'Greska',
+                                orElse: () => S.current.error,
                               ),
                               maxLines: 2,
                               style: const TextStyle(
@@ -191,19 +199,17 @@ class LessonTaskState extends ConsumerState<LessonTask> {
                           child: lessonState.when(
                             loading: () => const Center(
                                 child: CircularProgressIndicator()),
-                            error: (error) => Center(
-                                child: Text('Error: ${error.toString()}')),
+                            error: (error) =>
+                                Center(child: Text(' ${error.toString()}')),
                             loaded: (lessons) {
                               if (lessons.isEmpty) {
                                 return const SizedBox();
                               } else {
                                 if (firstColumnItems.isEmpty &&
                                     secondColumnItems.isEmpty) {
-                                  firstColumnItems = List.of(
-                                      lessons.first.answers +
-                                          lessons.first.correctAnswers)
-                                    ..shuffle();
+                                  sameWords(lessons);
                                 }
+
                                 return SingleChildScrollView(
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -211,12 +217,14 @@ class LessonTaskState extends ConsumerState<LessonTask> {
                                       children: firstColumnItems
                                           .asMap()
                                           .entries
-                                          .map((entry) => WordDisplayCard(
-                                                word: entry.value,
-                                                onTap: () => moveToSecondColumn(
-                                                  entry.key,
-                                                ),
-                                              ))
+                                          .map(
+                                            (entry) => WordDisplayCard(
+                                              word: entry.value,
+                                              onTap: () => moveToSecondColumn(
+                                                entry.key,
+                                              ),
+                                            ),
+                                          )
                                           .toList(),
                                     ),
                                   ),
@@ -243,12 +251,14 @@ class LessonTaskState extends ConsumerState<LessonTask> {
                             children: secondColumnItems
                                 .asMap()
                                 .entries
-                                .map((entry) => WordDisplayCard(
-                                      word: entry.value,
-                                      onTap: () => moveToFirstColumn(
-                                        entry.key,
-                                      ),
-                                    ))
+                                .map(
+                                  (entry) => WordDisplayCard(
+                                    word: entry.value,
+                                    onTap: () => moveToFirstColumn(
+                                      entry.key,
+                                    ),
+                                  ),
+                                )
                                 .toList(),
                           ),
                         ),
@@ -266,6 +276,10 @@ class LessonTaskState extends ConsumerState<LessonTask> {
                   ),
                   child: RotatingRow(
                     index: widget.studentIndex,
+                    onChecked: widget.onChecked,
+                    text: isVertical
+                        ? 'Ako si gotov, pritisni kvačicu\n i pričekaj ostale'
+                        : S.current.wait_for_others,
                   ),
                 ),
               ],
@@ -274,5 +288,12 @@ class LessonTaskState extends ConsumerState<LessonTask> {
         ),
       ),
     );
+  }
+
+  void sameWords(List<Lesson> lessons) {
+    final random =
+        Random(42); // Using a fixed seed for consistent randomization
+    final combinedList = lessons.first.answers + lessons.first.correctAnswers;
+    firstColumnItems = List.of(combinedList)..shuffle(random);
   }
 }

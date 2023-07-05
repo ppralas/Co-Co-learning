@@ -24,34 +24,47 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add_sublesson":
             MessageLookupByLibrary.simpleMessage("Dodaj podlekciju"),
+        "adjust_screen_and_confirm": MessageLookupByLibrary.simpleMessage(
+            "Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu."),
+        "bravo": MessageLookupByLibrary.simpleMessage("Bravo!"),
+        "call_teacher": MessageLookupByLibrary.simpleMessage(
+            "Super ste ovo riješili, samo nastavite tako!\nVježba je gotova, pozovite učiteljicu."),
         "confirm": MessageLookupByLibrary.simpleMessage("Potvrdi"),
+        "correct_answers":
+            MessageLookupByLibrary.simpleMessage("Točni odgovori:"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "error_screen_message": MessageLookupByLibrary.simpleMessage(
             "Nešto je pošlo po krivu,\npostavke nisu dohvaćene!"),
+        "exam_is_over":
+            MessageLookupByLibrary.simpleMessage("Vježba je gotova!"),
         "first_name": MessageLookupByLibrary.simpleMessage("Prvo ime"),
         "first_student_name":
             MessageLookupByLibrary.simpleMessage("Unesite prvo ime"),
         "forth_name": MessageLookupByLibrary.simpleMessage("Četvrto ime"),
         "forth_student_name":
-            MessageLookupByLibrary.simpleMessage("Unesite cetvrto ime"),
+            MessageLookupByLibrary.simpleMessage("Unesite četvrto ime"),
         "get_again": MessageLookupByLibrary.simpleMessage("Ponovo dohvati"),
         "grade": MessageLookupByLibrary.simpleMessage("Odabir razreda"),
-        "hello": MessageLookupByLibrary.simpleMessage("Pozdrav brate"),
         "hi": MessageLookupByLibrary.simpleMessage("Bok,"),
         "hi_message": MessageLookupByLibrary.simpleMessage("BOK!"),
+        "in_next_ten_minutes":
+            MessageLookupByLibrary.simpleMessage("Unutar sljedećih 10 minuta:"),
+        "insert_your_names_by_siting_order":
+            MessageLookupByLibrary.simpleMessage(
+                "Unesite svoja imena s obzirom na raspored sjedenja:"),
         "lesson": MessageLookupByLibrary.simpleMessage("Lekcija"),
         "lesson_add": MessageLookupByLibrary.simpleMessage("Dodaj lekciju"),
-        "lesson_designer":
-            MessageLookupByLibrary.simpleMessage("Dizajner lekcija"),
         "lesson_name":
             MessageLookupByLibrary.simpleMessage("Unesite ime lekcije"),
+        "lets_see_resoults":
+            MessageLookupByLibrary.simpleMessage("Idemo vidjeti rezultate!"),
         "oh_no": MessageLookupByLibrary.simpleMessage("Oh, ne!"),
         "rotate_screen": MessageLookupByLibrary.simpleMessage(
             "Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu!"),
         "second_name": MessageLookupByLibrary.simpleMessage("Drugo ime"),
         "second_studnet_name":
             MessageLookupByLibrary.simpleMessage("Unesite drugo ime"),
-        "something_wrong": MessageLookupByLibrary.simpleMessage("Greska"),
+        "something_wrong": MessageLookupByLibrary.simpleMessage("Greška"),
         "start_app": MessageLookupByLibrary.simpleMessage("POKRENI"),
         "subject": MessageLookupByLibrary.simpleMessage("Predmet"),
         "subject_select":
@@ -59,15 +72,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "sublesson": MessageLookupByLibrary.simpleMessage("Podlekcija"),
         "sublesson_name":
             MessageLookupByLibrary.simpleMessage("Ime podlekcije"),
-        "task_description": MessageLookupByLibrary.simpleMessage(
-            "Unutar sljedećih 10 minuta: Odaberi riječi u koje možeš ubaciti slovo č."),
         "third_name": MessageLookupByLibrary.simpleMessage("Treće ime"),
         "third_studnet_name":
-            MessageLookupByLibrary.simpleMessage("Unesite trece ime"),
+            MessageLookupByLibrary.simpleMessage("Unesite treće ime"),
         "unkown_error":
             MessageLookupByLibrary.simpleMessage("Unknown error occurred"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Dobrodošli"),
-        "welcome_title":
-            MessageLookupByLibrary.simpleMessage("Dobrodošli u CoCo aplikaciju")
+        "wait_for_others":
+            MessageLookupByLibrary.simpleMessage("Pričekaj da ostali završe."),
+        "welcome": MessageLookupByLibrary.simpleMessage("Dobrodošli!"),
+        "welcome_title": MessageLookupByLibrary.simpleMessage(
+            "Dobrodošli u CoCo aplikaciju!"),
+        "wrong_answers":
+            MessageLookupByLibrary.simpleMessage("Netočni odgovori")
       };
 }

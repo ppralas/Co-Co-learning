@@ -66,7 +66,9 @@ class _ActivityCardTileState extends ConsumerState<ActivityCardTile> {
                 const SizedBox(
                   height: 36,
                 ),
-                RegularText(text: S.current.rotate_screen),
+                RegularText(
+                  text: S.current.rotate_screen,
+                ),
                 const SizedBox(
                   height: 36,
                 ),

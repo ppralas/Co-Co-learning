@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:skola/student/presentation/screens/lesson_task_view.dart';
+import 'package:skola/student/presentation/screens/lesson_task_screen.dart';
 import 'package:skola/student/presentation/screens/template_screens/grid_screen_template.dart';
 import 'package:skola/student/presentation/widgets/task_description_card.dart';
 import 'package:skola/theme/app_colors.dart';
@@ -17,7 +17,6 @@ class LessonDescriptionScreen extends ConsumerStatefulWidget {
 class LessonDescriptionScreenState
     extends ConsumerState<LessonDescriptionScreen> {
   bool _isAllChecked = false;
-  late Function(bool) isChecked;
   List<bool> checked = [false, false, false, false];
   @override
   Widget build(BuildContext context) {

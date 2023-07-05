@@ -1,19 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
-import 'package:skola/common/presentation/widget/title_text_bolded.dart';
+import 'package:skola/common/presentation/widget/regular_text_bolded.dart';
+import 'package:skola/common/presentation/widget/subtitle_text.dart';
+import 'package:skola/generated/l10n.dart';
+import 'package:skola/student/domain/student_notifiers/student_notifier.dart';
+import 'package:skola/student/presentation/widgets/activity_card.dart';
+import 'package:skola/student/presentation/widgets/rotating_row.dart';
 
-class ExamDoneCard extends StatelessWidget {
-  const ExamDoneCard({super.key});
+class ExamDoneCard extends ConsumerWidget {
+  final Color color;
+  final int studentIndex;
+  final Function(bool value) onChecked;
+  final String? subtitleText;
+  final String? descriptionString;
+
+  const ExamDoneCard({
+    super.key,
+    required this.color,
+    required this.studentIndex,
+    required this.onChecked,
+    this.descriptionString,
+    this.subtitleText,
+  });
 
   @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          TitleTextBolded(titleText: 'Vježba je gotova!'),
-          RegularText(text: 'Idemo vidjeti tvoje rezultate!'),
-        ],
+  Widget build(BuildContext context, WidgetRef ref) {
+    final orientation = ref.watch(orientationProvider);
+
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(4),
+            topRight: Radius.circular(24),
+            bottomLeft: Radius.circular(24),
+            bottomRight: Radius.circular(4),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(
+            120,
+            80,
+            120,
+            80,
+          ),
+          child: Transform.rotate(
+            angle: orientation[studentIndex],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                RegularTextBolded(text: S.current.exam_is_over),
+                const SizedBox(
+                  height: 36,
+                ),
+                RegularText(text: S.current.lets_see_resoults),
+                const SizedBox(
+                  height: 100,
+                ),
+                RotatingRow(
+                  index: studentIndex,
+                  onChecked: onChecked,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

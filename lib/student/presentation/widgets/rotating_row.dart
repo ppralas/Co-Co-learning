@@ -4,15 +4,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skola/common/presentation/widget/regular_text.dart';
 import 'package:skola/student/presentation/widgets/activity_card.dart';
 
 class RotatingRow extends ConsumerStatefulWidget {
   final int index;
   final Function(bool value)? onChecked;
+  final String? text;
   const RotatingRow({
     super.key,
     required this.index,
     this.onChecked,
+    this.text,
   });
 
   @override
@@ -44,6 +47,16 @@ class _RotatingRowState extends ConsumerState<RotatingRow> {
                 .read(orientationProvider.notifier)
                 .update((state) => orientation);
           },
+        ),
+        Text(
+          widget.text ?? '',
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 15,
+            fontFamily: 'JosefinSans',
+            overflow: TextOverflow.ellipsis,
+          ),
+          maxLines: 2,
         ),
         InkWell(
           radius: 50,

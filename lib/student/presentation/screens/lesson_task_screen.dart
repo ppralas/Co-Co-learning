@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:skola/student/presentation/screens/solutions.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:skola/student/presentation/screens/exam_done_screen.dart';
 import 'package:skola/student/presentation/screens/template_screens/grid_screen_template.dart';
+import 'package:skola/student/presentation/screens/wait_for_others_screen.dart';
 import 'package:skola/student/presentation/widgets/lesson_task.dart';
 import 'package:skola/theme/app_colors.dart';
 
-class LessonTaskView extends StatefulWidget {
+class LessonTaskView extends ConsumerStatefulWidget {
   const LessonTaskView({Key? key}) : super(key: key);
 
   @override
   LessonTaskViewState createState() => LessonTaskViewState();
 }
 
-class LessonTaskViewState extends State<LessonTaskView> {
+class LessonTaskViewState extends ConsumerState<LessonTaskView> {
   bool _isAllChecked = false;
   List<bool> checked = [false, false, false, false];
 
@@ -32,7 +34,7 @@ class LessonTaskViewState extends State<LessonTaskView> {
         backgroundColor: AppColors.lightOrange,
         columnColor: AppColors.orange,
         onChecked: (value) {
-          checked[0] = value;
+          checked[1] = value;
           _onCardChecked();
         },
       ),
@@ -41,7 +43,7 @@ class LessonTaskViewState extends State<LessonTaskView> {
         backgroundColor: AppColors.lightYellow,
         columnColor: AppColors.yellow,
         onChecked: (value) {
-          checked[0] = value;
+          checked[2] = value;
           _onCardChecked();
         },
       ),
@@ -50,7 +52,7 @@ class LessonTaskViewState extends State<LessonTaskView> {
         backgroundColor: AppColors.veryLightPurple,
         columnColor: AppColors.purple,
         onChecked: (value) {
-          checked[0] = value;
+          checked[3] = value;
           _onCardChecked();
         },
       ),
@@ -70,7 +72,7 @@ class LessonTaskViewState extends State<LessonTaskView> {
       if (_isAllChecked) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const SolutionsScreen()),
+          MaterialPageRoute(builder: (context) => const ExamDoneScreen()),
         );
       }
     }

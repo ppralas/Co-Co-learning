@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/presentation/widgets/button_no_icon.dart';
 import 'package:skola/theme/app_colors.dart';
 
@@ -38,7 +39,7 @@ class EndScreen extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  'Bravo',
+                  S.current.bravo,
                   style: TextStyle(fontSize: 90, color: AppColors.purple),
                 ),
                 const SizedBox(
@@ -46,6 +47,7 @@ class EndScreen extends StatelessWidget {
                 ),
                 Text(
                   'Super ste ovo riješili, samo nastavite tako!\nVježba je gotova, pozovite učiteljicu.',
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 30, color: AppColors.purple),
                 ),
                 const SizedBox(

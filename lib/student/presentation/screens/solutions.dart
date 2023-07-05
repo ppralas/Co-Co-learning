@@ -48,6 +48,13 @@ class SolutionsScreen extends ConsumerWidget {
               children: [
                 Column(
                   children: [
+                    const SizedBox(
+                      height: 90,
+                    ),
+                    const RegularText(text: 'Netočni odgovori:'),
+                    const SizedBox(
+                      height: 24,
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.veryLightPurple,
@@ -89,6 +96,13 @@ class SolutionsScreen extends ConsumerWidget {
                 ),
                 Column(
                   children: [
+                    const SizedBox(
+                      height: 90,
+                    ),
+                    const RegularText(text: 'Točni odgovori:'),
+                    const SizedBox(
+                      height: 24,
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.veryLightPurple,
@@ -135,7 +149,7 @@ class SolutionsScreen extends ConsumerWidget {
               child: const ButtonNoIcon(
                 buttonText: 'Završi',
               ),
-              onTap: () => Navigator.push(
+              onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const EndScreen(),

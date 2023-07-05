@@ -17,8 +17,8 @@ class GridScreenTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Material(
+      child: Column(
         children: [
           Expanded(
             child: Row(

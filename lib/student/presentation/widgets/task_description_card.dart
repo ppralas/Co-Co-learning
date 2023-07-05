@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/common/presentation/widget/regular_text.dart';
+import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/lesson_notifiers/lesson_notifier.dart';
 import 'package:skola/student/domain/student_notifiers/student_notifier.dart';
 import 'package:skola/student/presentation/widgets/activity_card.dart';
@@ -76,7 +77,9 @@ class _TaskDescriptionCardState extends ConsumerState<TaskDescriptionCard> {
                         orElse: () => 'Greska',
                       ),
                 ),
-                const RegularText(text: 'Unutar sljedećih 10 minuta:'),
+                RegularText(
+                  text: S.current.in_next_ten_minutes,
+                ),
                 RegularText(
                   text: ref.watch(lessonNotifierProvider).maybeWhen(
                         loaded: (lessons) => lessons.first.taskDescription,

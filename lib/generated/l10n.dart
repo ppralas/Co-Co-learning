@@ -50,16 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Pozdrav brate`
-  String get hello {
-    return Intl.message(
-      'Pozdrav brate',
-      name: 'hello',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Odabir razreda`
   String get subject_select {
     return Intl.message(
@@ -95,16 +85,6 @@ class S {
     return Intl.message(
       'Unesite ime lekcije',
       name: 'lesson_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Dizajner lekcija`
-  String get lesson_designer {
-    return Intl.message(
-      'Dizajner lekcija',
-      name: 'lesson_designer',
       desc: '',
       args: [],
     );
@@ -210,30 +190,30 @@ class S {
     );
   }
 
-  /// `Unesite trece ime`
+  /// `Unesite treće ime`
   String get third_studnet_name {
     return Intl.message(
-      'Unesite trece ime',
+      'Unesite treće ime',
       name: 'third_studnet_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `Unesite cetvrto ime`
+  /// `Unesite četvrto ime`
   String get forth_student_name {
     return Intl.message(
-      'Unesite cetvrto ime',
+      'Unesite četvrto ime',
       name: 'forth_student_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `Dobrodošli u CoCo aplikaciju`
+  /// `Dobrodošli u CoCo aplikaciju!`
   String get welcome_title {
     return Intl.message(
-      'Dobrodošli u CoCo aplikaciju',
+      'Dobrodošli u CoCo aplikaciju!',
       name: 'welcome_title',
       desc: '',
       args: [],
@@ -300,31 +280,41 @@ class S {
     );
   }
 
-  /// `Unutar sljedećih 10 minuta: Odaberi riječi u koje možeš ubaciti slovo č.`
-  String get task_description {
+  /// `Unutar sljedećih 10 minuta:`
+  String get in_next_ten_minutes {
     return Intl.message(
-      'Unutar sljedećih 10 minuta: Odaberi riječi u koje možeš ubaciti slovo č.',
-      name: 'task_description',
+      'Unutar sljedećih 10 minuta:',
+      name: 'in_next_ten_minutes',
       desc: '',
       args: [],
     );
   }
 
-  /// `Greska`
+  /// `Greška`
   String get something_wrong {
     return Intl.message(
-      'Greska',
+      'Greška',
       name: 'something_wrong',
       desc: '',
       args: [],
     );
   }
 
-  /// `Dobrodošli`
+  /// `Dobrodošli!`
   String get welcome {
     return Intl.message(
-      'Dobrodošli',
+      'Dobrodošli!',
       name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bravo!`
+  String get bravo {
+    return Intl.message(
+      'Bravo!',
+      name: 'bravo',
       desc: '',
       args: [],
     );
@@ -375,6 +365,86 @@ class S {
     return Intl.message(
       'Potvrdi',
       name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu.`
+  String get adjust_screen_and_confirm {
+    return Intl.message(
+      'Rotiraj ekran ako ti ne odgovara, te potvrdi klikom na kvačicu.',
+      name: 'adjust_screen_and_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pričekaj da ostali završe.`
+  String get wait_for_others {
+    return Intl.message(
+      'Pričekaj da ostali završe.',
+      name: 'wait_for_others',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unesite svoja imena s obzirom na raspored sjedenja:`
+  String get insert_your_names_by_siting_order {
+    return Intl.message(
+      'Unesite svoja imena s obzirom na raspored sjedenja:',
+      name: 'insert_your_names_by_siting_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Točni odgovori:`
+  String get correct_answers {
+    return Intl.message(
+      'Točni odgovori:',
+      name: 'correct_answers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Netočni odgovori`
+  String get wrong_answers {
+    return Intl.message(
+      'Netočni odgovori',
+      name: 'wrong_answers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vježba je gotova!`
+  String get exam_is_over {
+    return Intl.message(
+      'Vježba je gotova!',
+      name: 'exam_is_over',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Idemo vidjeti rezultate!`
+  String get lets_see_resoults {
+    return Intl.message(
+      'Idemo vidjeti rezultate!',
+      name: 'lets_see_resoults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Super ste ovo riješili, samo nastavite tako!\nVježba je gotova, pozovite učiteljicu.`
+  String get call_teacher {
+    return Intl.message(
+      'Super ste ovo riješili, samo nastavite tako!\nVježba je gotova, pozovite učiteljicu.',
+      name: 'call_teacher',
       desc: '',
       args: [],
     );

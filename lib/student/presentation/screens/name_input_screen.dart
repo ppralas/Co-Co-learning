@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skola/generated/l10n.dart';
 import 'package:skola/student/domain/student_notifiers/student_notifier.dart';
-import 'package:skola/student/presentation/screens/grid_screen.dart';
+import 'package:skola/student/presentation/screens/orientation_screen.dart';
 import 'package:skola/student/presentation/widgets/big_pink_button.dart';
 import 'package:skola/theme/app_colors.dart';
 
@@ -46,14 +46,14 @@ class _NamesInputScreenState extends ConsumerState<NamesInputScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'DOBRODOSLI!',
+              S.current.welcome.toUpperCase(),
               style: TextStyle(fontSize: 90, color: AppColors.purple),
             ),
             const SizedBox(
               height: 36,
             ),
             Text(
-              'Unesite svoja imena s obzirom na raspored sjedenja:',
+              S.current.insert_your_names_by_siting_order,
               style: TextStyle(color: AppColors.purple, fontSize: 36),
             ),
             const SizedBox(
@@ -120,7 +120,7 @@ class _NamesInputScreenState extends ConsumerState<NamesInputScreen> {
                     ],
                   );
 
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const OrientationScreen(),
